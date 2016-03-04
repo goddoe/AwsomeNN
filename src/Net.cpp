@@ -11,8 +11,8 @@ Net::Net()
 {
     m_firstInput = true;
     m_inputNum = 0;
-    m_eta = 0.0;
-    m_alpha =0.0;
+    m_eta = 0.015;
+    m_alpha =0.5;
     m_weightRange=0.0;
 }
 Net::Net(int _inputNum)
@@ -20,7 +20,7 @@ Net::Net(int _inputNum)
     m_firstInput = true;
     m_inputNum = _inputNum;
     m_eta = 0.015;
-    m_alpha = 0.0;
+    m_alpha = 0.5;
     m_weightRange = 0.5;
 }
 
@@ -381,13 +381,13 @@ void Net::save(char *_filePath)
             for(int _x = 0 ; _x < m_layersInfo[i]->numWeight ; ++_x)
             {
                 fprintf(fp, "%f ", m_layers[i][_y][_x]);
-                printf("%f ",m_layers[i][_y][_x]);
+                //printf("%f ",m_layers[i][_y][_x]);
             }
             fprintf(fp,"\n");
-            printf("\n");
+            //printf("\n");
         }
         fprintf(fp,"\n");
-        printf("\n");
+        //printf("\n");
     }
 
     printf("load Neural Net layers done!\n\n");
